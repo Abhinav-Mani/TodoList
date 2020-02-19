@@ -42,6 +42,11 @@ App={
   loadAccount: async()=>{
       App.account=web3.eth.accounts[0]
       console.log(App.account);
+  },createTask: async () => {
+    App.setLoading(true)
+    const content = $('#newTask').val()
+    await App.todoList.createTask(content)
+    window.location.reload()
   },
   loadContract:async()=>{
       const todoList=await $.getJSON("TodoList.json");
